@@ -2,7 +2,7 @@
 
 This is the practical map of the repository. Open this file when you need to know where a new file belongs.
 
-> **Status:** The repository contains the documented folder scaffold and the initial Worker HTTP foundation. Telegram update processing, product modules, database migrations, and deployment behavior are added only as they are implemented and tested.
+> **Status:** The repository contains the documented folder scaffold, committed npm lockfile, initial Worker HTTP foundation, and passing CI quality pipeline. Telegram update processing, product modules, database migrations, and production deployment are added only as they are implemented and tested.
 
 ## Directory tree
 
