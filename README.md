@@ -123,7 +123,7 @@ See the [Architecture](docs/ARCHITECTURE.md) and [Technology Decision](docs/adr/
 | Product vision | Defined |
 | Repository and license | Created |
 | Engineering documentation | Initial baseline published |
-| Directory guides | In progress |
+| Directory guides | Published |
 | Technical architecture | Documented; implementation pending |
 | Database schema | Designed; migrations not started |
 | Telegram bot foundation | Not started |
