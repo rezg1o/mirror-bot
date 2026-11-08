@@ -2,7 +2,7 @@
 
 > **Document status:** Engineering baseline  
 > **Version:** 1.0  
-> **Project status:** Pre-implementation  
+> **Project status:** Engineering foundation in progress  
 > **Audience:** Contributors, maintainers, reviewers, and coding agents
 
 ## 1. Start Here
@@ -15,7 +15,7 @@ This document is the entry point for understanding the entire MIRROR codebase. F
 4. [Security](SECURITY.md) — secrets, webhook validation, privacy, abuse prevention, and release requirements.
 5. [Technology Decision](adr/0001-runtime-and-database.md) — why the initial runtime and database were selected.
 
-**Important:** This repository is currently at the foundation stage. The structure and components below describe the agreed target design; they are not claims that the application has already been implemented.
+**Important:** The repository now contains the initial Worker HTTP foundation, strict tooling configuration, and first Worker tests. Telegram update processing, database access, and product features remain unimplemented. The structure below describes the target design, not completed functionality.
 
 ## 2. Project Definition
 
@@ -170,7 +170,7 @@ Keep these responsibilities separate. Do not place all logic in the webhook hand
 
 ## 7. Target Repository Layout
 
-The current folder scaffold is documented in the [Project Directory Guide](../PROJECT_STRUCTURE.md). Each visible directory contains a README.md explaining its responsibility. Add source and test files only when the corresponding behavior is implemented; do not create fake entry points or non-functional placeholders.
+The actual folder scaffold is documented in the [Project Directory Guide](../PROJECT_STRUCTURE.md). The initial source files now include src/index.ts, src/app.ts, src/config/env.ts, and src/shared/http/json-response.ts. Product modules and transport adapters are added only when implemented and tested.
 
 ~~~text
 mirror-bot/
