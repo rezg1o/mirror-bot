@@ -14,7 +14,7 @@ MIRROR is an open-source social entertainment Telegram bot built around curiosit
 
 ---
 
-> **Project status:** Engineering foundation in progress. The Worker HTTP foundation and development tooling are being established. Telegram update processing and product features are not implemented yet.
+> **Project status:** Engineering foundation established. The Worker HTTP foundation, strict tooling, dependency lockfile, and CI quality pipeline are in place. Telegram update processing and product features are not implemented yet.
 
 ## Start Here
 
@@ -179,7 +179,7 @@ The first npm install creates package-lock.json; commit the lockfile with depend
 | Runtime configuration validation | Implemented; local verification pending |
 | Formatting and lint configuration | Added; local verification pending |
 | Worker runtime tests | Added; local verification pending |
-| GitHub Actions CI | Added; first run pending |
+| GitHub Actions CI | Active; passing |
 | Supabase schema and migrations | Designed; not implemented |
 | Telegram webhook processing | Not implemented |
 | User experience and product modules | Planned |
