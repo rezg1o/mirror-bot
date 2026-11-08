@@ -170,7 +170,7 @@ Keep these responsibilities separate. Do not place all logic in the webhook hand
 
 ## 7. Target Repository Layout
 
-The actual folder scaffold is documented in the [Project Directory Guide](../PROJECT_STRUCTURE.md). The initial source files now include src/index.ts, src/app.ts, src/config/env.ts, and src/shared/http/json-response.ts. Product modules and transport adapters are added only when implemented and tested.
+The actual folder scaffold is documented in the [Project Directory Guide](../PROJECT_STRUCTURE.md). The initial source files include src/index.ts, src/app.ts, src/config/env.ts, and src/shared/http/json-response.ts. CI uses the committed npm lockfile and npm ci. Product modules and transport adapters are added only when implemented and tested.
 
 ~~~text
 mirror-bot/
@@ -226,7 +226,7 @@ mirror-bot/
 │   ├── fixtures/
 │   └── helpers/
 ├── scripts/
-├── .env.example
+├── .dev.vars.example
 ├── .gitignore
 ├── package.json
 ├── package-lock.json
