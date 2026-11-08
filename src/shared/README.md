@@ -2,11 +2,12 @@
 
 Contains small technical utilities genuinely reused across multiple modules.
 
-Examples:
-- Typed application errors.
-- Runtime validation helpers.
-- Stable cross-module types.
+Current responsibilities:
+- errors/: stable typed application errors (planned).
+- http/: shared HTTP response and request-boundary helpers.
+- validation/: reusable runtime validation helpers (planned).
+- types/: stable cross-module types (planned).
 
 Keep this area intentionally small. Feature-specific business rules belong in their feature module, not in shared/.
 
-**Status:** Initial HTTP response helper implemented; other shared primitives are planned.
+**Status:** Initial JSON HTTP response helper is implemented. Other primitives are added only when reused by real features.
