@@ -1,4 +1,4 @@
-import { isRuntimeReady, type Env } from "./config/env";
+import { type Env, isRuntimeReady } from "./config/env";
 import { jsonResponse } from "./shared/http/json-response";
 
 const SERVICE_NAME = "mirror-bot";

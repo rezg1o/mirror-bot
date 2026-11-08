@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { isRuntimeReady, type Env } from "../../src/config/env";
+import { type Env, isRuntimeReady } from "../../src/config/env";
 
 const completeEnvironment: Env = {
   APP_ENV: "test",

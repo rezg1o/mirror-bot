@@ -1,7 +1,7 @@
 import { createExecutionContext, waitOnExecutionContext } from "cloudflare:test";
 import { describe, expect, it } from "vitest";
-import worker from "../../src/index";
 import type { Env } from "../../src/config/env";
+import worker from "../../src/index";
 
 const testEnvironment: Env = {
   APP_ENV: "test",

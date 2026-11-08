@@ -10,6 +10,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   quality:
     name: Quality, types, tests, and build
@@ -25,8 +29,16 @@ jobs:
         with:
           node-version: 24
 
-      - name: Install dependencies
+      - name: Install dependencies and generate the initial lockfile
         run: npm install --no-audit --no-fund
+
+      - name: Upload initial dependency lockfile
+        uses: actions/upload-artifact@v6
+        with:
+          name: mirror-package-lock
+          path: package-lock.json
+          if-no-files-found: error
+          retention-days: 1
 
       - name: Run all quality gates
         run: npm run ci
