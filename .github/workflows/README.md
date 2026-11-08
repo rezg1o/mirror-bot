@@ -2,15 +2,18 @@
 
 GitHub Actions workflow files belong here.
 
-The initial CI workflow is defined in ci.yml. Its checks include:
-- Install locked dependencies.
-- Check formatting and lint rules.
-- Run TypeScript type checking.
-- Run unit and integration tests.
-- Build the Cloudflare Worker.
+## Current workflow
 
-Deployment workflows are added only after staging and production deployment are documented.
+- **ci.yml** runs on pushes to main, pull requests, and manual dispatch.
+- It installs the committed dependency lockfile with npm ci.
+- It runs Biome formatting/lint checks, Wrangler type generation and consistency checks, strict TypeScript checks, Vitest, and a Wrangler dry-run build.
+- It uses read-only repository permissions and cancels superseded runs.
 
-Never hard-code tokens or credentials in workflow files. Use least-privilege GitHub permissions and repository secrets only when required.
+## Rules
 
-**Status:** CI workflow added; first successful run is pending.
+- Workflow permissions must remain least-privilege.
+- Never hard-code tokens or credentials in workflow files.
+- Use repository secrets only when a workflow genuinely needs them.
+- Deployment automation requires a documented staging and production process.
+
+**Status:** Active. The initial quality pipeline has passed.
