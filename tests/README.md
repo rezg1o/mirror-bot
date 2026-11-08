@@ -11,4 +11,4 @@ Never use production bot tokens, production databases, or real user records in t
 
 Every business invariant in docs/DATA_MODEL.md must gain automated coverage as the related feature is implemented.
 
-**Status:** Test structure is prepared; no test suite is active yet.
+**Status:** Initial Worker HTTP and runtime configuration tests have been added; local and CI execution is pending dependency installation.
