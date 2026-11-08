@@ -30,7 +30,7 @@ You do not need a production Telegram token or production database to run the te
 2. Install the exact project dependencies:
 
    ~~~bash
-   npm install
+   npm ci
    ~~~
 
 3. Generate Cloudflare Worker runtime types:
