@@ -27,10 +27,19 @@ describe("runtime configuration validation", () => {
     expect(isRuntimeReady(incompleteEnvironment)).toBe(false);
   });
 
-  it("rejects an invalid Supabase URL", () => {
+  it("rejects an invalid Supabase URL without throwing", () => {
     const invalidEnvironment: Env = {
       ...completeEnvironment,
       SUPABASE_URL: "not-a-url",
+    };
+
+    expect(isRuntimeReady(invalidEnvironment)).toBe(false);
+  });
+
+  it("rejects insecure non-local Supabase URLs", () => {
+    const invalidEnvironment: Env = {
+      ...completeEnvironment,
+      SUPABASE_URL: "http://example.supabase.co",
     };
 
     expect(isRuntimeReady(invalidEnvironment)).toBe(false);

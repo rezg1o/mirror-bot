@@ -9,13 +9,26 @@ export interface Env {
   readonly SUPABASE_SECRET_KEY?: string;
 }
 
-const supabaseUrlSchema = z.url().refine((value) => {
-  const url = new URL(value);
-  return (
-    url.protocol === "https:" ||
-    (url.protocol === "http:" && (url.hostname === "localhost" || url.hostname === "127.0.0.1"))
+function isAllowedSupabaseUrl(value: string): boolean {
+  try {
+    const url = new URL(value);
+
+    return (
+      url.protocol === "https:" ||
+      (url.protocol === "http:" && (url.hostname === "localhost" || url.hostname === "127.0.0.1"))
+    );
+  } catch {
+    return false;
+  }
+}
+
+const supabaseUrlSchema = z
+  .string()
+  .min(1)
+  .refine(
+    isAllowedSupabaseUrl,
+    "SUPABASE_URL must be a valid HTTPS URL, except for localhost development.",
   );
-}, "SUPABASE_URL must use HTTPS, except for localhost development.");
 
 const runtimeEnvironmentSchema = z.object({
   APP_ENV: z.enum(["development", "test", "production"]).default("development"),
