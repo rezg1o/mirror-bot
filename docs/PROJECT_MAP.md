@@ -7,7 +7,7 @@
 
 ## 1. Start Here
 
-This document is the entry point for understanding the entire MIRROR codebase. Read the documents in this order:
+This document is the entry point for understanding the entire MIRROR codebase. For a folder-by-folder guide to the actual repository layout, start with the [Project Directory Guide](../PROJECT_STRUCTURE.md). Read the engineering documents in this order:
 
 1. [Product Specification](PRODUCT_SPEC.md) — what the bot does and how users experience it.
 2. [Architecture](ARCHITECTURE.md) — how requests move through the system and where responsibilities belong.
@@ -170,7 +170,7 @@ Keep these responsibilities separate. Do not place all logic in the webhook hand
 
 ## 7. Target Repository Layout
 
-This is the intended structure as the codebase grows. A directory should be created when its first real implementation is added; do not add empty placeholder modules merely to make the tree look complete.
+The current folder scaffold is documented in the [Project Directory Guide](../PROJECT_STRUCTURE.md). Each visible directory contains a README.md explaining its responsibility. Add source and test files only when the corresponding behavior is implemented; do not create fake entry points or non-functional placeholders.
 
 ~~~text
 mirror-bot/
