@@ -2,7 +2,7 @@
 
 ### See yourself. Discover others.
 
-MIRROR is an open-source social entertainment Telegram bot that turns everyday questions into interactive experiences. Explore different perspectives, predict what the crowd thinks, challenge your friends, and discover how people around the world respond to the same questions.
+MIRROR is an open-source social entertainment Telegram bot built around curiosity, human perspectives, interactive questions, crowd predictions, and shared challenges.
 
 **Every answer reveals a new perspective.**
 
@@ -14,28 +14,30 @@ MIRROR is an open-source social entertainment Telegram bot that turns everyday q
 
 ---
 
-> **Project status:** Foundation and architecture documentation are in place. The bot implementation has not started yet; planned features are not presented as available functionality.
+> **Project status:** Foundation and architecture documentation are published. The application implementation has not started. Planned features are not presented as working functionality.
 
-## About the Project
+## Start Here
+
+New to the repository? Read the [Project Directory Guide](PROJECT_STRUCTURE.md) first. It explains the folder layout and where each type of file belongs.
+
+Then follow the engineering documentation:
+
+| Document | Purpose |
+| --- | --- |
+| [Project Map](docs/PROJECT_MAP.md) | System overview, responsibilities, workflows, and implementation order |
+| [Product Specification](docs/PRODUCT_SPEC.md) | User journeys, commands, challenge rules, results, and MVP acceptance criteria |
+| [Architecture](docs/ARCHITECTURE.md) | Runtime topology, webhook lifecycle, application boundaries, and deployment |
+| [Data Model](docs/DATA_MODEL.md) | Database entities, constraints, relationships, and transactions |
+| [Security & Privacy](docs/SECURITY.md) | Threat model, secret handling, privacy, and release checklist |
+| [Technology Decision](docs/adr/0001-runtime-and-database.md) | Why the initial runtime and database were selected |
+
+## About MIRROR
 
 MIRROR is designed to make social discovery entertaining and accessible through Telegram.
 
-Users will be able to answer curated questions, predict which option will be most popular, compare their predictions with aggregate community results, and take part in one-to-one or group challenges.
+Users will be able to answer curated questions, predict which option will be most popular, compare predictions with aggregate community results, and take part in one-to-one or group challenges.
 
 MIRROR is an entertainment experience—not a psychological assessment, diagnostic tool, or measure of an individual's personality.
-
-## Documentation
-
-Start with the project map. It explains how the entire repository is organized and where each part belongs.
-
-| Document | What it explains |
-| --- | --- |
-| [Project Map](docs/PROJECT_MAP.md) | The complete system map, module responsibilities, repository layout, workflows, and implementation order |
-| [Product Specification](docs/PRODUCT_SPEC.md) | User journeys, commands, feature behavior, result rules, challenges, and MVP acceptance criteria |
-| [Architecture](docs/ARCHITECTURE.md) | Runtime topology, webhook lifecycle, application boundaries, database access, and deployment flow |
-| [Data Model](docs/DATA_MODEL.md) | Database entities, relationships, integrity constraints, and transaction boundaries |
-| [Security & Privacy](docs/SECURITY.md) | Threat model, secrets, webhook security, privacy, abuse prevention, and release checklist |
-| [Technology Decision](docs/adr/0001-runtime-and-database.md) | Rationale and trade-offs for the initial runtime and database |
 
 ## Planned Features
 
@@ -44,19 +46,19 @@ The following features describe the product vision. They are not available until
 ### 🪞 Daily Mirror
 - Discover curated interactive experiences.
 - Explore questions about human choices, social thinking, and everyday opinions.
-- Answer one question at a time through Telegram.
-- Predict which answer will be most popular.
+- Answer one question at a time.
+- Predict which response will be most popular.
 
 ### 🎯 Challenges
 - Create one-to-one and group question challenges.
 - Invite friends through shareable Telegram links.
+- Participate through private bot chats.
 - Compare predictions with aggregate results.
-- Join and participate through private bot chats.
 
 ### 🌍 World Results
-- Explore anonymous aggregated community responses.
+- Explore anonymous community response distributions.
 - Discover popular answers and unexpected outcomes.
-- Browse finalized and recently completed experiences.
+- Browse finalized and recent experiences.
 - View sample sizes and result timestamps.
 
 ### 🏆 Progress & Achievements
@@ -74,12 +76,12 @@ The following features describe the product vision. They are not available until
 ## How an Experience Works
 
 1. **Discover** — open an available MIRROR experience.
-2. **Answer** — choose one of the predefined responses.
+2. **Answer** — choose one predefined response.
 3. **Predict** — guess which response will be most popular.
 4. **Discover** — view aggregate results when enough valid responses are available.
-5. **Share** — invite friends to take part in a one-to-one or group challenge.
+5. **Share** — invite friends to a one-to-one or group challenge.
 
-Community statistics are based on valid, completed participations. Results include a sample size and freshness context. MIRROR does not fabricate missing results or expose individual answers.
+Community statistics are based on valid, completed participations. Results include sample size and freshness context. MIRROR does not fabricate missing results or expose individual answers.
 
 ## Product Principles
 
@@ -93,11 +95,11 @@ Community statistics are based on valid, completed participations. Results inclu
 | Accessibility | Keep interactions simple and native to Telegram. |
 | Openness | Develop in public and welcome thoughtful contributions. |
 
-MIRROR is designed for broad, international use. Experiences are curated and must be suitable for a general audience, including teenagers. Challenges are question-based social experiences—not physical dares or risky activities. Predictions have no wagers, monetary stakes, or financial rewards.
+Experiences are curated for a broad audience, including teenagers. Challenges are question-based social experiences—not physical dares or risky activities. Predictions have no wagers, monetary stakes, or financial rewards.
 
 ## Technology
 
-The initial MVP architecture is documented and uses:
+The initial MVP architecture uses:
 
 | Layer | Technology |
 | --- | --- |
@@ -110,59 +112,32 @@ The initial MVP architecture is documented and uses:
 | Deployment | Wrangler |
 | CI | GitHub Actions |
 
-See the [Architecture](docs/ARCHITECTURE.md) and [Technology Decision](docs/adr/0001-runtime-and-database.md) for responsibilities, constraints, and trade-offs.
+See the [Architecture](docs/ARCHITECTURE.md) and [Technology Decision](docs/adr/0001-runtime-and-database.md) for implementation boundaries and trade-offs.
 
 ## Project Status
 
-**Current stage: Foundation & Architecture**
+**Current stage: Repository Foundation & Architecture**
 
 | Area | Status |
 | --- | --- |
 | Product vision | Defined |
 | Repository and license | Created |
-| Project documentation | Initial baseline published |
+| Engineering documentation | Initial baseline published |
+| Directory guides | In progress |
 | Technical architecture | Documented; implementation pending |
 | Database schema | Designed; migrations not started |
 | Telegram bot foundation | Not started |
-| Interactive experiences | Planned |
-| Predictions and results | Planned |
-| Challenge system | Planned |
-| Privacy and data controls | Specified; implementation pending |
+| Interactive experiences and challenges | Planned |
 | Automated tests and CI | Not started |
 | Public deployment | Not started |
 
 ## Roadmap
 
-### Phase 1 — Foundation
-- Establish repository structure and development standards.
-- Implement the TypeScript Worker foundation.
-- Add environment validation and secure configuration.
-- Add database migrations and test tooling.
-- Configure automated quality checks.
-
-### Phase 2 — Bot Core
-- Implement webhook validation and update idempotency.
-- Implement the main entry point and navigation.
-- Build Telegram menus and inline interactions.
-- Add persistent user and session handling.
-
-### Phase 3 — Social Experiences
-- Implement question and answer flows.
-- Add crowd predictions.
-- Calculate and display threshold-aware aggregate results.
-
-### Phase 4 — Challenges
-- Support one-to-one and group challenges.
-- Add secure, expiring invitation links.
-- Track challenge participation and completion.
-
-### Phase 5 — Quality & Release
-- Complete automated test coverage.
-- Review security, privacy, and data deletion flows.
-- Deploy to staging and run acceptance tests.
-- Publish the first production release.
-
-Roadmap items may change as the project develops. The project map defines the intended implementation order.
+1. **Foundation:** TypeScript Worker setup, configuration validation, database migrations, test tooling, and CI.
+2. **Bot Core:** secure webhook, update idempotency, commands, menus, and persistent user state.
+3. **Social Experiences:** questions, answers, predictions, and threshold-aware results.
+4. **Challenges:** secure invitations, membership, expiry, and aggregate challenge results.
+5. **Release:** privacy deletion, security review, staging, acceptance tests, and production deployment.
 
 ## Planned Commands
 
@@ -178,29 +153,25 @@ Roadmap items may change as the project develops. The project map defines the in
 | /settings | Manage preferences and privacy |
 | /language | View language availability |
 
-These commands must not be advertised as operational until their handlers are implemented and tested.
+Commands must not be presented as operational until their handlers are implemented and tested.
 
 ## Security & Privacy
-
-Security and privacy are core engineering requirements.
 
 - Never commit bot tokens, passwords, API keys, or private credentials.
 - Store secrets in secure environment-specific configuration.
 - Minimize personal data collection and retention.
 - Validate incoming updates and user-submitted data.
-- Prevent duplicate submissions at the application and database layers.
+- Prevent duplicate submissions at application and database layers.
 - Keep individual responses private; publish aggregate results only.
 - Provide a documented account data deletion process.
 
-Read [Security & Privacy](docs/SECURITY.md) before contributing code that touches user data, Telegram updates, database permissions, or secrets.
+Read [Security & Privacy](docs/SECURITY.md) before changing authentication, secrets, database permissions, or user data handling.
 
 ## Contributing
 
-MIRROR is intended to be developed openly. Bug reports, thoughtful feature proposals, documentation improvements, and code contributions will be welcome.
+Bug reports, thoughtful feature proposals, documentation improvements, and code contributions will be welcome.
 
-Before making a substantial change, open a GitHub issue to discuss the proposal. Development setup and contribution instructions will be added with the first code foundation.
-
-Please keep contributions focused, tested, and consistent with the product, privacy, and data-integrity requirements.
+Before making a substantial change, open a GitHub issue to discuss the proposal. Follow the folder boundaries in [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) and the engineering rules in [docs/PROJECT_MAP.md](docs/PROJECT_MAP.md).
 
 ## License
 
