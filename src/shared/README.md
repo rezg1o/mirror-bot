@@ -9,4 +9,4 @@ Examples:
 
 Keep this area intentionally small. Feature-specific business rules belong in their feature module, not in shared/.
 
-**Status:** Planned; not implemented.
+**Status:** Initial HTTP response helper implemented; other shared primitives are planned.
