@@ -7,9 +7,6 @@ on:
   pull_request:
   workflow_dispatch:
 
-permissions:
-  contents: read
-
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -19,6 +16,8 @@ jobs:
     name: Quality, types, tests, and build
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      contents: write
 
     steps:
       - name: Check out repository
@@ -30,16 +29,19 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
-      - name: Install dependencies and generate the initial lockfile
+      - name: Install dependencies
         run: npm install --no-audit --no-fund
 
-      - name: Upload initial dependency lockfile
-        uses: actions/upload-artifact@v6
-        with:
-          name: mirror-package-lock
-          path: package-lock.json
-          if-no-files-found: error
-          retention-days: 1
+      - name: Commit the initial dependency lockfile
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          if ! git ls-files --error-unmatch package-lock.json >/dev/null 2>&1; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add package-lock.json
+            git commit -m 'chore: add reproducible npm lockfile [skip ci]'
+            git push origin HEAD:main
+          fi
 
       - name: Run all quality gates
         run: npm run ci
