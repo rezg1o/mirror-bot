@@ -2,7 +2,7 @@
 
 GitHub Actions workflow files belong here.
 
-Planned CI checks:
+The initial CI workflow is defined in ci.yml. Its checks include:
 - Install locked dependencies.
 - Check formatting and lint rules.
 - Run TypeScript type checking.
@@ -13,4 +13,4 @@ Deployment workflows are added only after staging and production deployment are 
 
 Never hard-code tokens or credentials in workflow files. Use least-privilege GitHub permissions and repository secrets only when required.
 
-**Status:** No active workflow yet.
+**Status:** CI workflow added; first successful run is pending.
