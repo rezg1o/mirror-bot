@@ -14,13 +14,13 @@ MIRROR is an open-source social entertainment Telegram bot built around curiosit
 
 ---
 
-> **Project status:** Foundation and architecture documentation are published. The application implementation has not started. Planned features are not presented as working functionality.
+> **Project status:** Engineering foundation in progress. The Worker HTTP foundation and development tooling are being established. Telegram update processing and product features are not implemented yet.
 
 ## Start Here
 
-New to the repository? Read the [Project Directory Guide](PROJECT_STRUCTURE.md) first. It explains the folder layout and where each type of file belongs.
+New contributors should begin with the [Project Directory Guide](PROJECT_STRUCTURE.md). It explains where each type of file belongs and how requests flow through the application.
 
-Then follow the engineering documentation:
+Then read the engineering documents:
 
 | Document | Purpose |
 | --- | --- |
@@ -30,6 +30,7 @@ Then follow the engineering documentation:
 | [Data Model](docs/DATA_MODEL.md) | Database entities, constraints, relationships, and transactions |
 | [Security & Privacy](docs/SECURITY.md) | Threat model, secret handling, privacy, and release checklist |
 | [Technology Decision](docs/adr/0001-runtime-and-database.md) | Why the initial runtime and database were selected |
+| [Contributing](CONTRIBUTING.md) | Local setup, code standards, and pull request workflow |
 
 ## About MIRROR
 
@@ -99,61 +100,98 @@ Experiences are curated for a broad audience, including teenagers. Challenges ar
 
 ## Technology
 
-The initial MVP architecture uses:
-
 | Layer | Technology |
 | --- | --- |
 | Bot interface | Telegram Bot API |
 | Application runtime | Cloudflare Workers |
 | Language | TypeScript |
 | Database | Supabase PostgreSQL |
-| Validation | Zod (planned) |
-| Tests | Vitest (planned) |
+| Runtime validation | Zod |
+| Formatting and linting | Biome |
+| Worker runtime tests | Vitest + Cloudflare Vitest plugin |
 | Deployment | Wrangler |
 | CI | GitHub Actions |
 
 See the [Architecture](docs/ARCHITECTURE.md) and [Technology Decision](docs/adr/0001-runtime-and-database.md) for implementation boundaries and trade-offs.
 
+## Current Foundation
+
+Implemented in the initial engineering foundation:
+
+- Cloudflare Worker entry point and application router.
+- Liveness and readiness endpoints.
+- Explicit placeholder response for the not-yet-implemented Telegram webhook.
+- Runtime configuration validation without exposing secret values.
+- Strict TypeScript configuration and generated Worker runtime types.
+- Biome formatting and lint rules.
+- Vitest tests running in the Workers runtime.
+- GitHub Actions quality workflow.
+
+The following are not implemented yet: Telegram update processing, the Supabase repository layer, database migrations, user onboarding, experiments, predictions, challenges, and public result calculations.
+
+## Local Development
+
+### Requirements
+
+- Node.js 24.x
+- npm
+
+### Setup
+
+~~~bash
+git clone https://github.com/rezg1o/mirror-bot.git
+cd mirror-bot
+npm install
+npm run types:generate
+npm run ci
+~~~
+
+To start the local Worker:
+
+~~~bash
+npm run dev
+~~~
+
+Available foundation endpoints:
+
+| Endpoint | Purpose |
+| --- | --- |
+| GET /health/live | Confirms that the Worker responds |
+| GET /health/ready | Reports whether required runtime configuration is present |
+| POST /telegram/webhook | Reserved route; returns 501 until Telegram handling is implemented |
+
+### Local secrets
+
+Copy .dev.vars.example to .dev.vars only when working on features that require provider credentials. Use development-only credentials. The .dev.vars file is ignored by Git and must never be committed.
+
+The first npm install creates package-lock.json; commit the lockfile with dependency changes so subsequent installs can use npm ci.
+
 ## Project Status
 
-**Current stage: Repository Foundation & Architecture**
+**Current stage: Engineering Foundation**
 
 | Area | Status |
 | --- | --- |
-| Product vision | Defined |
-| Repository and license | Created |
-| Engineering documentation | Initial baseline published |
-| Directory guides | Published |
-| Technical architecture | Documented; implementation pending |
-| Database schema | Designed; migrations not started |
-| Telegram bot foundation | Not started |
-| Interactive experiences and challenges | Planned |
-| Automated tests and CI | Not started |
-| Public deployment | Not started |
+| Product vision and requirements | Defined |
+| Repository directory guide | Published |
+| Architecture and data documentation | Published |
+| TypeScript Worker foundation | Implemented; local verification pending |
+| Runtime configuration validation | Implemented; local verification pending |
+| Formatting and lint configuration | Added; local verification pending |
+| Worker runtime tests | Added; local verification pending |
+| GitHub Actions CI | Added; first run pending |
+| Supabase schema and migrations | Designed; not implemented |
+| Telegram webhook processing | Not implemented |
+| User experience and product modules | Planned |
+| Production deployment | Not started |
 
 ## Roadmap
 
-1. **Foundation:** TypeScript Worker setup, configuration validation, database migrations, test tooling, and CI.
-2. **Bot Core:** secure webhook, update idempotency, commands, menus, and persistent user state.
+1. **Engineering Foundation:** Worker, configuration, strict typing, tests, linting, and CI.
+2. **Telegram Core:** webhook validation, update idempotency, commands, menus, and persistent user state.
 3. **Social Experiences:** questions, answers, predictions, and threshold-aware results.
 4. **Challenges:** secure invitations, membership, expiry, and aggregate challenge results.
 5. **Release:** privacy deletion, security review, staging, acceptance tests, and production deployment.
-
-## Planned Commands
-
-| Command | Purpose |
-| --- | --- |
-| /start | Start using MIRROR |
-| /help | Learn how MIRROR works |
-| /menu | Open the main menu |
-| /daily | Discover the featured experience |
-| /challenges | Create or join challenges |
-| /results | Explore community results |
-| /profile | View private progress |
-| /settings | Manage preferences and privacy |
-| /language | View language availability |
-
-Commands must not be presented as operational until their handlers are implemented and tested.
 
 ## Security & Privacy
 
@@ -165,13 +203,13 @@ Commands must not be presented as operational until their handlers are implement
 - Keep individual responses private; publish aggregate results only.
 - Provide a documented account data deletion process.
 
-Read [Security & Privacy](docs/SECURITY.md) before changing authentication, secrets, database permissions, or user data handling.
+Read [Security & Privacy](docs/SECURITY.md) before changing authentication, secrets, database permissions, or user data handling. For vulnerability reports, see [SECURITY.md](SECURITY.md).
 
 ## Contributing
 
-Bug reports, thoughtful feature proposals, documentation improvements, and code contributions will be welcome.
+Bug reports, thoughtful feature proposals, documentation improvements, and code contributions are welcome.
 
-Before making a substantial change, open a GitHub issue to discuss the proposal. Follow the folder boundaries in [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) and the engineering rules in [docs/PROJECT_MAP.md](docs/PROJECT_MAP.md).
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 
 ## License
 

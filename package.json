@@ -1,0 +1,36 @@
+{
+  "name": "mirror-bot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Open-source social entertainment Telegram bot.",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "types:generate": "wrangler types",
+    "types:check": "wrangler types --check",
+    "format": "biome format --write",
+    "format:check": "biome format",
+    "lint": "biome lint",
+    "check": "biome ci",
+    "typecheck": "npm run types:generate && tsc --project tsconfig.json --noEmit && tsc --project tests/tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "wrangler deploy --dry-run --outdir=dist",
+    "ci": "npm run check && npm run typecheck && npm run test && npm run build"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.119.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.6",
+    "@cloudflare/vitest-plugin": "1.6.0",
+    "typescript": "7.0.2",
+    "vitest": "4.1.0",
+    "wrangler": "4.158.0"
+  }
+}

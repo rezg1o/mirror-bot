@@ -1,0 +1,8 @@
+# Copy this file to .dev.vars for local development.
+# Replace placeholders only with credentials created for a development environment.
+# SUPABASE_URL is non-secret configuration in wrangler.toml.
+# Never commit .dev.vars.
+
+TELEGRAM_BOT_TOKEN=replace_with_a_rotated_development_bot_token
+TELEGRAM_WEBHOOK_SECRET=replace_with_a_random_webhook_secret
+SUPABASE_SECRET_KEY=replace_with_a_development_supabase_secret_key
