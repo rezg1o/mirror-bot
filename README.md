@@ -40,6 +40,12 @@ Users will be able to answer curated questions, predict which option will be mos
 
 MIRROR is an entertainment experience—not a psychological assessment, diagnostic tool, or measure of an individual's personality.
 
+## Support the Project
+
+If MIRROR is useful to you, you can help sustain its open-source development. Use the **Sponsor** button on GitHub for the available sponsorship options, or see [DONATE.md](DONATE.md) for direct cryptocurrency support.
+
+Before sending cryptocurrency, verify the asset, network, and receiving address carefully. Never share a wallet recovery phrase or private key with anyone.
+
 ## Planned Features
 
 The following features describe the product vision. They are not available until implemented and tested.
@@ -220,6 +226,7 @@ MIRROR is released under the [MIT License](LICENSE).
 - **Telegram:** [@MirrorDiscoverBot](https://t.me/MirrorDiscoverBot)
 - **GitHub:** [rezg1o/mirror-bot](https://github.com/rezg1o/mirror-bot)
 - **License:** [MIT](LICENSE)
+- **Support:** [Sponsorship and donation options](DONATE.md)
 
 ---
 
