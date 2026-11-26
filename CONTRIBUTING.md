@@ -66,6 +66,14 @@ When a feature needs provider credentials:
 
 The real .dev.vars file is ignored by Git.
 
+## Funding information
+
+- `.github/FUNDING.yml` configures the repository's GitHub Sponsors profile and custom funding links.
+- `DONATE.md` documents public cryptocurrency receiving addresses and the exact network for each asset.
+- When updating a receiving address, verify it with the maintainer and confirm the network label before changing the public file.
+- Never add a wallet recovery phrase, private key, password, or other credential to the repository.
+- Keep the README and project directory guide aligned with any changes to the funding files.
+
 ## Change workflow
 
 1. Create a focused branch from main.

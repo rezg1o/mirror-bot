@@ -9,9 +9,12 @@ This is the practical map of the repository. Open this file when you need to kno
 ~~~text
 mirror-bot/
 ├── .github/
+│   ├── FUNDING.yml                # GitHub Sponsors and custom funding links
+│   ├── dependabot.yml             # Dependency update automation
 │   └── workflows/
 │       ├── README.md
-│       └── ci.yml                 # Automated quality gates
+│       ├── ci.yml                 # Automated quality gates
+│       └── codeql.yml             # Static security analysis
 ├── docs/                          # Product and engineering documentation
 │   └── adr/                       # Architecture Decision Records
 ├── src/                           # TypeScript application source
@@ -59,6 +62,7 @@ mirror-bot/
 ├── tsconfig.json
 ├── vitest.config.ts
 ├── wrangler.toml
+├── DONATE.md                      # Public receiving addresses and network details
 ├── PROJECT_STRUCTURE.md
 ├── README.md
 ├── CONTRIBUTING.md
@@ -80,6 +84,7 @@ mirror-bot/
 | tests/ | Automated checks for application behavior |
 | docs/ | Product requirements, technical explanations, decisions, and security policy |
 | scripts/ | Repeatable development and maintenance commands |
+| .github/FUNDING.yml and DONATE.md | GitHub sponsorship metadata and public donation instructions; never store recovery phrases or private keys |
 | .github/workflows/ | Automated CI and deployment workflows |
 
 ## How a Telegram update travels through MIRROR
