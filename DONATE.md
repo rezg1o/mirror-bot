@@ -25,6 +25,3 @@ Please send funds only on the exact network listed for each address. Transfers s
 **Address:**
 `35dvsamxJYxVthagtLkpjgbDbCTas6657ttAffhD9fV2`
 
-## Security
-
-These are public receiving addresses. Never share a wallet recovery phrase or private key with anyone. No one supporting this project should ever ask you for either.
