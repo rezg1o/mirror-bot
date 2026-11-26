@@ -54,7 +54,7 @@ Choose the correct asset and network before sending. Transfers sent through a di
 | **ETH** | Ethereum Mainnet | `0x67B7C0150f1c5b0a3F6Eecb9E52AfAAdaa1F03A4` |
 | **SOL** | Solana Mainnet | `35dvsamxJYxVthagtLkpjgbDbCTas6657ttAffhD9fV2` |
 
-For the full donation details, see [DONATE.md](DONATE.md). Never share a wallet recovery phrase or private key with anyone.
+For the full donation details, see [DONATE.md](DONATE.md).
 
 
 ## Planned Features
