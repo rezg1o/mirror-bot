@@ -42,9 +42,20 @@ MIRROR is an entertainment experience—not a psychological assessment, diagnost
 
 ## Support the Project
 
-If MIRROR is useful to you, you can help sustain its open-source development. Use the **Sponsor** button on GitHub for the available sponsorship options, or see [DONATE.md](DONATE.md) for direct cryptocurrency support.
+If MIRROR is useful to you, you can help sustain its open-source development. Use the **Sponsor** button on GitHub for the available sponsorship options.
 
-Before sending cryptocurrency, verify the asset, network, and receiving address carefully. Never share a wallet recovery phrase or private key with anyone.
+### Cryptocurrency Donations
+
+Choose the correct asset and network before sending. Transfers sent through a different network may be lost and may not be recoverable.
+
+| Asset | Network | Receiving address |
+| --- | --- | --- |
+| **BTC** | Bitcoin Mainnet (Native SegWit) | `bc1qa5q7gr95n0h4enewdauexjz8yz9jj8yy4ttyfz` |
+| **ETH** | Ethereum Mainnet | `0x67B7C0150f1c5b0a3F6Eecb9E52AfAAdaa1F03A4` |
+| **SOL** | Solana Mainnet | `35dvsamxJYxVthagtLkpjgbDbCTas6657ttAffhD9fV2` |
+
+For the full donation details, see [DONATE.md](DONATE.md). Never share a wallet recovery phrase or private key with anyone.
+
 
 ## Planned Features
 
